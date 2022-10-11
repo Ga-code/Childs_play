@@ -6,6 +6,10 @@
 # either way, there should be some kind of symlink called "cc"
 CC=$(which cc || which clang || which gcc)
 
+# -g enabled because we WANT core files
+# $ ulimit -c unlimited
+# on lldb (which i only know):
+# $ lldb a.out -c a.out.core
 CFLAGS="-Wall -Wextra -pedantic -g -std=c99"
 LDFLAGS="-static"
 
