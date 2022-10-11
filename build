@@ -6,7 +6,7 @@
 # either way, there should be some kind of symlink called "cc"
 CC=$(which cc || which clang || which gcc)
 
-CFLAGS=-Wall -Wextra -pedantic -g -std=c99
-LDFLAGS=-static
+CFLAGS="-Wall -Wextra -pedantic -g -std=c99"
+LDFLAGS="-static"
 
 $CC $CFLAGS $@ $LDFLAGS
