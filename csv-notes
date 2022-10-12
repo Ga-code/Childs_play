@@ -1,0 +1,35 @@
+The save file format will be CSV (Comma Separated Values), which looks
+like this:
+
+	Username,Password,bio
+	idk,$2b$10$iGvXYYVUweDxupdQPpDPFu4MobfdwbuJO9eFktB2LVnk00dLKomrG,i dont know
+
+We will use this for loading game data as a structure:
+
+	typedef struct game {
+		char name[32];
+		char data[32];
+	} game;
+
+Let's initialize this game by making a game structure called "mygame":
+
+	game mygame;
+
+Now that it has been created, it has been assigned a place in memory.
+For our example, lets say that place is 0xfffc5878.
+
+	Decimal | Hexadecimal
+	--------|------------
+	32      | 0x20
+
+16 = 0x10
+16 * 2 = 32, so 32 = 0x20.
+
+If each item in "mygame" is 32 (0x20) bytes long, then one can switch their base address by 0x20 in order to switch to "name" and "data";
+
+	mygame starts at 0xfffc5878
+		.name at 0xfffc5878 - 0xfffc5897
+		.data at 0xfffc5898 - 0xfffc58b7
+	ends at 0xfffc58b8
+
+Make sure you remember basic arithmetic. It helps.
