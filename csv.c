@@ -9,9 +9,9 @@ main(void)
 	int a, b;
 
 	a = sizeof(mysave);
-
-	char name[] = "Wow";
-
+	
+    	char name[] = "Wow";
+	
 	strcpy(mysave.name, name);
 
 	printf("mysave 0x%02x\n", &mysave);
